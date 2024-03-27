@@ -12,7 +12,7 @@ player_stats = {
 }
 
 def generate_response(text_input):
-    response = openai.chat.completion.create(
+    response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
         {
