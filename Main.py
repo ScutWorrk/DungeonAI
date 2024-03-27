@@ -3,7 +3,6 @@ import openai
 
 #load_dotenv()
 openai_api_key = st.secrets["OPENAI_API_KEY"]
-openai.api_key = openai_api_key
 
 # Initial game state
 player_stats = {
@@ -13,7 +12,7 @@ player_stats = {
 }
 
 def generate_response(text_input):
-    response = openai.chat.completion.create()
+    response = openai.chat.completion.create(
     model="gpt-3.5-turbo",
     messages=[
         {
@@ -32,7 +31,7 @@ def generate_response(text_input):
     max_tokens=50,
     stop="\n",
     temperature=0.7
-    
+    )
         
     return response.choices[0].message.content
 
